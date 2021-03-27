@@ -1,3 +1,7 @@
+#ifndef __GRAPH__
+#define __GRAPH__
+
+
 #include "gluethread/glthread.h"
 
 
@@ -11,7 +15,7 @@
 typedef struct node_ node_t;
 typedef struct link_ link_t;
 
-typrdef struct interface_ {
+typedef struct interface_ {
 
 	char if_name[IF_NAME_SIZE];
 	struct node_ *att_node;
@@ -28,7 +32,7 @@ struct link_ {
 struct node_ {
 
 	char node_name[NODE_NAME_SIZE];
-	interfaces_t *intf[MAX_INFT_PER_NODE];
+	interface_t *intf[MAX_INTF_PER_NODE];
 	glthread_t graph_glue;	
 };
 
@@ -36,6 +40,10 @@ typedef struct graph_ {
 
 	char topology_name[32];
 	glthread_t node_list;
-};
+}graph_t;
+
+//GLTHREAD_TO_STRUCT(graph_glue_to_node, node_t, graph_glue);
 
 
+
+#endif
